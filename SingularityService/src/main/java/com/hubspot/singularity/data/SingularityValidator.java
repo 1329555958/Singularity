@@ -437,7 +437,7 @@ public class SingularityValidator {
     double memoryMbPerInstance = deploy.getResources().or(defaultResources).getMemoryMb();
 
     checkBadRequest(cpusPerInstance > 0, "Request must have more than 0 cpus");
-    checkBadRequest(memoryMbPerInstance > 0, "Request must have more than 0 memoryMb");
+//    checkBadRequest(memoryMbPerInstance > 0, "Request must have more than 0 memoryMb");
 
     checkBadRequest(cpusPerInstance <= maxCpusPerInstance, "Deploy %s uses too many cpus %s (maxCpusPerInstance %s in mesos configuration)", deploy.getId(), cpusPerInstance, maxCpusPerInstance);
     checkBadRequest(cpusPerInstance * instances <= maxCpusPerRequest,
