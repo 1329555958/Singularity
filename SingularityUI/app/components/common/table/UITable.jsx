@@ -276,7 +276,7 @@ class UITable extends Component {
     } else if (this.props.rowClassName) {
       rowClassName = this.props.rowClassName;
     }
-    return <tr key={`row-${this.props.keyGetter(rowData)}`} className={rowClassName}>{row}</tr>;
+    return <tr key={`row-${this.props.keyGetter(rowData)}`} className={rowClassName}><td>{index+1}</td>{row}</tr>;
   }
 
   renderTableRows() {
@@ -298,8 +298,8 @@ class UITable extends Component {
     // Only render a number of rows at a time
     // check to see if we can render of everything
     const maxVisibleRows = this.props.renderAllRows ? this.state.data.length : this.state.chunkNum * this.state.rowChunkSize;
-    const rows = this.state.data.slice(0, maxVisibleRows).map((row) => {
-      return this.renderTableRow(row);
+    const rows = this.state.data.slice(0, maxVisibleRows).map((row,index) => {
+      return this.renderTableRow(row,index);
     });
 
     if (maxVisibleRows < this.state.data.length) {
@@ -371,7 +371,7 @@ class UITable extends Component {
             onEnter={() => {
               const maxVisibleRows = this.state.chunkNum * this.state.rowChunkSize;
               if (maxVisibleRows < this.state.data.length) {
-                _.defer(() => {
+                _.defer(function(){
                   this.setState({
                     chunkNum: this.state.chunkNum + 1
                   });
@@ -420,7 +420,7 @@ class UITable extends Component {
     });
 
 
-    return <tr>{headerRow}</tr>;
+    return <tr><th>No.</th>{headerRow}</tr>;
   }
 
   render() {
