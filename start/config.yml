@@ -1,0 +1,68 @@
+# Run SingularityService on port 7099 and log to /var/log/singularity-access.log
+server:
+  type: simple
+  applicationContextPath: /singularity
+  connector:
+    type: http
+    port: 17099
+  requestLog:
+    appenders:
+      - type: file
+        currentLogFilename: /var/log/singularity-access.log
+        archivedLogFilenamePattern: /var/log/singularity-access-%d.log.gz
+
+# omit this entirely if not using MySQL
+database:
+  driverClass: com.mysql.jdbc.Driver
+  user: singularity
+  password: singularity
+  url: jdbc:mysql://10.5.6.35:3306/singularitydb
+
+mesos:
+  #master: zk://10.5.6.31:2181,10.5.6.32:2181,10.5.6.33:2181/mesos
+  master: zk://dev21532:2181,dev21513:2181,dev21531:2181,dev21533:2181,dev21534:2181/mesos
+  defaultCpus: 1
+  defaultMemory: 1024
+  frameworkName: Singularity34
+  frameworkId: Singularity34
+  frameworkFailoverTimeout: 1000000
+  rackIdAttributeKey: rack
+zookeeper:
+  quorum: dev21532:2181,dev21513:2181,dev21531:2181,dev21533:2181,dev21534:2181
+  zkNamespace: singularity34
+  sessionTimeoutMillis: 60000
+  connectTimeoutMillis: 5000
+  retryBaseSleepTimeMilliseconds: 1000
+  retryMaxTries: 3
+
+logging:
+  loggers:
+    "com.hubspot.singularity" : INFO
+
+enableCorsFilter: true
+sandboxDefaultsToTaskId: false  # enable if using SingularityExecutor
+defaultSlavePlacement: SEPARATE_BY_DEPLOY
+loadBalancerUri: http://10.65.215.12:18080/baragon/v2/request
+deleteRemovedRequestsFromLoadBalancer: true
+considerTaskHealthyAfterRunningForSeconds: 100
+deployHealthyBySeconds: 600
+healthcheckMaxRetries: 120
+# 启动时的健康检查
+startupDelaySeconds: 60
+startupTimeoutSeconds: 300
+startupIntervalSeconds: 5
+
+maxRequestIdSize: 10000
+maxDeployIdSize: 1000
+#sandboxDefaultsToTaskId: true
+
+ui:
+  title: Singularity
+  baseUrl: http://10.65.215.34:17099/singularity # If hosting singularity on another domain, use that domain instead of localhost
+
+smtp:
+  username: weichunhe@netfinworks.com
+  password: wid228
+  host: smtp.exmail.qq.com
+  from: weichunhe@netfinworks.com
+  admins: [weichunhe@netfinworks.com]
