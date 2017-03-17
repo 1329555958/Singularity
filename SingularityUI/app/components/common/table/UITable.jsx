@@ -371,7 +371,7 @@ class UITable extends Component {
             onEnter={() => {
               const maxVisibleRows = this.state.chunkNum * this.state.rowChunkSize;
               if (maxVisibleRows < this.state.data.length) {
-                _.defer(function(){
+                _.defer(()=>{
                   this.setState({
                     chunkNum: this.state.chunkNum + 1
                   });
