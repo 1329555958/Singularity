@@ -16,12 +16,13 @@ var streamqueue = require('streamqueue');
 var eslint = require('gulp-eslint');
 
 // we used the wrong variable here, in the next version we will remove SINGULARITY_BASE_URI
-var serverBase = process.env.SINGULARITY_URI_BASE || process.env.SINGULARITY_BASE_URI || '/singularity';
-
+//var serverBase = process.env.SINGULARITY_URI_BASE || process.env.SINGULARITY_BASE_URI || '/singularity';
+//var serverBase = 'http://10.5.6.35:7099/singularity';
+var serverBase = 'http://localhost:3334';
 var templateData = {
   staticRoot: process.env.SINGULARITY_STATIC_URI || (serverBase + '/static'),
   appRoot: process.env.SINGULARITY_APP_URI || (serverBase + '/ui'),
-  apiRoot: process.env.SINGULARITY_API_URI || '',
+  apiRoot: process.env.SINGULARITY_API_URI || ('http://10.65.215.34:17099/singularity/api'),
   apiDocs: process.env.SINGULARITY_API_DOCS || 'http://getsingularity.com/Docs/reference/apidocs/api-index.html',
   slaveHttpPort: process.env.SINGULARITY_SLAVE_HTTP_PORT || 5051,
   title: process.env.SINGULARITY_TITLE || 'Singularity (local dev)',
@@ -132,7 +133,7 @@ gulp.task('lint', function () {
 });
 
 gulp.task('build', ['clean'], function () {
-  gulp.start(['scripts', 'html', 'styles', 'fonts', 'images', 'css-images', 'lint']);
+  gulp.start(['scripts', 'html', 'styles', 'fonts', 'images', 'css-images']);
 });
 
 gulp.task('serve', ['html', 'styles', 'fonts', 'images', 'css-images', 'lint'], function () {
@@ -148,4 +149,4 @@ gulp.task('serve', ['html', 'styles', 'fonts', 'images', 'css-images', 'lint'], 
   });
 });
 
-gulp.task('default', ['build']);
+gulp.task('default', ['build','serve']);
