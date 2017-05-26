@@ -337,6 +337,20 @@
         		</lifecycleMappingMetadata>
         	</configuration>
         </plugin>
+        <plugin>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.3</version>
+          <configuration>
+            <compilerArguments children.combine="append">
+              <bootclasspath>d:/Program Files/java/jdk1.8.0_65/jre/lib/rt.jar;d:/Program Files/java/jdk1.8.0_65/jre/lib/jce.jar;d:/Program Files/java/jdk1.8.0_65/../classes/classes.jar</bootclasspath>
+            </compilerArguments>
+            <source>1.8</source>
+            <target>1.8</target>
+            <encoding>UTF-8</encoding>
+            <maxmem>1024m</maxmem>
+            <showWarnings>true</showWarnings>
+          </configuration>
+        </plugin>
       </plugins>
     </pluginManagement>
   </build>

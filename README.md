@@ -29,6 +29,10 @@ For a more thorough explanation of the concepts behind Singularity and Mesos cli
  - [Custom executor with extended log features](Docs/about/how-it-works.md#optional-components)
 
 ----------
+### 编译 ###
+`mvn clean package -DskipTests`
+UI 要单独编译放在SingularityBase的jar包里,UI的index.html里面记得 添加task.js 用来拉取tag的数据
+
 
 ### Try It Out! ###
 
