@@ -18,7 +18,7 @@ var _client = new HttpClient();
 function getTag(filter) {
     var filter = filter;
     if (!filter) {
-        console.log('请在搜索框中输入环境信息，比如func112,然后开始拉取tag!');
+        console.log('请传入环境信息，比如getTag("func112"),然后开始拉取tag!');
         return;
     }
     filter = filter.trim();
@@ -38,7 +38,7 @@ function getTag(filter) {
             for (var i = 0; i < tasks.length; i++) {
                 env = tasks[i].taskRequest.deploy.env;
                 if (env.ENV_INFO.startsWith(filter)) {
-                    tags[env.INSTANCE_NAME] = env.INSTANCE_CMD;
+                    tags[env.GIT_NAME] = env.INSTANCE_CMD;
                 }
             }
             var tagArr = [];
@@ -53,5 +53,5 @@ function getTag(filter) {
         });
     });
 }
-
+console.log("获取Tag示例:getTag('func120')");
 
