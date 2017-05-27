@@ -30,8 +30,21 @@ For a more thorough explanation of the concepts behind Singularity and Mesos cli
 
 ----------
 ### 编译 ###
+- java 
 `mvn clean package -DskipTests`
-UI 要单独编译放在SingularityBase的jar包里,UI的app.js里面记得 添加task.js 用来拉取tag的数据
+- ui
+单独在SingularityUI下面执行`gulp` 进行编译，然后把dist下面内容放在SingularityService的assets目录里
+
+### 结构 ###
+- 后端
+主入口是SingularityService里面的IndexView
+url映射是是resources目录
+
+- 前端react
+界面元素是在app/components下面定义，使用url
+数据获取、url定义等是在app/actions/api下面定义
+界面与数据是通过url来绑定的
+
 
 
 ### Try It Out! ###
