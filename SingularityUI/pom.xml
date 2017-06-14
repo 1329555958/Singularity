@@ -21,53 +21,53 @@
             </activation>
             <build>
                 <plugins>
-                    <plugin>
-                        <groupId>com.github.eirslett</groupId>
-                        <artifactId>frontend-maven-plugin</artifactId>
+                    <!--<plugin>-->
+                        <!--<groupId>com.github.eirslett</groupId>-->
+                        <!--<artifactId>frontend-maven-plugin</artifactId>-->
 
-                        <executions>
-                            <execution>
-                                <id>install node and npm</id>
-                                <goals>
-                                    <goal>install-node-and-npm</goal>
-                                </goals>
-                                <configuration>
-                                    <nodeVersion>v6.2.1</nodeVersion>
-                                    <npmVersion>3.9.3</npmVersion>
-                                </configuration>
-                            </execution>
+                        <!--<executions>-->
+                            <!--<execution>-->
+                                <!--<id>install node and npm</id>-->
+                                <!--<goals>-->
+                                    <!--<goal>install-node-and-npm</goal>-->
+                                <!--</goals>-->
+                                <!--<configuration>-->
+                                    <!--<nodeVersion>v6.2.1</nodeVersion>-->
+                                    <!--<npmVersion>3.9.3</npmVersion>-->
+                                <!--</configuration>-->
+                            <!--</execution>-->
 
-                            <execution>
-                                <id>npm install</id>
-                                <goals>
-                                    <goal>npm</goal>
-                                </goals>
-                                <configuration>
-                                    <arguments>install</arguments>
-                                </configuration>
-                            </execution>
+                            <!--<execution>-->
+                                <!--<id>npm install</id>-->
+                                <!--<goals>-->
+                                    <!--<goal>npm</goal>-->
+                                <!--</goals>-->
+                                <!--<configuration>-->
+                                    <!--<arguments>install</arguments>-->
+                                <!--</configuration>-->
+                            <!--</execution>-->
 
-                            <execution>
-                                <id>npm test</id>
-                                <goals>
-                                    <goal>npm</goal>
-                                </goals>
-                                <configuration>
-                                    <arguments>test</arguments>
-                                </configuration>
-                            </execution>
+                            <!--<execution>-->
+                                <!--<id>npm test</id>-->
+                                <!--<goals>-->
+                                    <!--<goal>npm</goal>-->
+                                <!--</goals>-->
+                                <!--<configuration>-->
+                                    <!--<arguments>test</arguments>-->
+                                <!--</configuration>-->
+                            <!--</execution>-->
 
-                            <execution>
-                                <id>gulp build</id>
-                                <goals>
-                                    <goal>gulp</goal>
-                                </goals>
-                                <configuration>
-                                    <arguments>build</arguments>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
+                            <!--<execution>-->
+                                <!--<id>gulp build</id>-->
+                                <!--<goals>-->
+                                    <!--<goal>gulp</goal>-->
+                                <!--</goals>-->
+                                <!--<configuration>-->
+                                    <!--<arguments>build</arguments>-->
+                                <!--</configuration>-->
+                            <!--</execution>-->
+                        <!--</executions>-->
+                    <!--</plugin>-->
                 </plugins>
             </build>
         </profile>

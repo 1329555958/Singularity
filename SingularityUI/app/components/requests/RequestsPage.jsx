@@ -90,13 +90,13 @@ class RequestsPage extends Component {
         return [
           Cols.Starred,
           Cols.RequestId,
-          Cols.Type,
+          //Cols.Type,
           Cols.State,
           Cols.Instances,
           Cols.DeployId,
-          Cols.DeployUser,
+          //Cols.DeployUser,
           Cols.LastDeploy,
-          Cols.Schedule,
+          //Cols.Schedule,
           Cols.Actions
         ];
     }

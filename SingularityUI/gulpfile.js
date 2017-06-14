@@ -136,7 +136,7 @@ gulp.task('build', ['clean'], function () {
   gulp.start(['scripts', 'html', 'styles', 'fonts', 'images', 'css-images']);
 });
 
-gulp.task('serve', ['html', 'styles', 'fonts', 'images', 'css-images', 'lint'], function () {
+gulp.task('serve', ['html', 'styles', 'fonts', 'images', 'css-images'], function () {
   gulp.watch('app/**/*.styl', ['styles']);
   gulp.watch('app/**/*.scss', ['styles']);
 

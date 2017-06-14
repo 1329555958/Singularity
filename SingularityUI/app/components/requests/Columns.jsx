@@ -11,9 +11,11 @@ import ToolTip from 'react-bootstrap/lib/Tooltip';
 
 import RequestStar from './RequestStar';
 import UnpauseButton from '../common/modalButtons/UnpauseButton';
+import PauseButton from '../common/modalButtons/PauseButton';
 import RemoveButton from '../common/modalButtons/RemoveButton';
 import RunNowButton from '../common/modalButtons/RunNowButton';
 import ScaleButton from '../common/modalButtons/ScaleButton';
+import BounceButton from '../common/modalButtons/BounceButton';
 
 export const Starred = (
   <Column
@@ -187,9 +189,25 @@ const editTooltip = (
 
 export const Actions = (
   <Column
-    label=""
+    label={
+      (data)=>{
+          function reload(){
+          setTimeout(function(){
+          window.location.reload();
+          },1000);
+          }
+          return (
+          <div className="hidden-xs">
+              <BounceButton requestId={data.map(r=>{return r.id;})} then={reload} />
+               <UnpauseButton requestId={data.map(r=>{return r.id;})} then={reload} />
+               <PauseButton requestId={data.map(r=>{return r.id;})} isScheduled={false} then={reload}/>
+           </div>
+          );
+      }
+    }
     id="actions"
     key="actions"
+    headerClassName="actions-column"
     className="actions-column"
     cellRender={
       (cellData, rowData) => {
@@ -274,14 +292,14 @@ export const CleaningTimestamp = (
 );
 
 export const CleanupType = (
-  <Column
-    label="Cleaning Type"
-    id="cleanupType"
-    key="cleanupType"
-    sortable={true}
-    cellData={
+    <Column
+        label="Cleaning Type"
+        id="cleanupType"
+        key="cleanupType"
+        sortable={true}
+        cellData={
       (rowData) => rowData.cleanupType
     }
-    cellRender={(cellData) => Utils.humanizeText(cellData)}
-  />
+        cellRender={(cellData) => Utils.humanizeText(cellData)}
+    />
 );
