@@ -9,6 +9,7 @@ function TaskInfo (props) {
         <ul className="list-unstyled horizontal-description-list">
           <InfoBox copyableClassName="info-copyable" name="Task ID" value={props.task.taskId.id} />
           <InfoBox copyableClassName="info-copyable" name="Directory" value={props.directory} />
+          <InfoBox copyableClassName="info-copyable" name="Container Shell"  value={"docker exec -it mesos-"+/\/slaves\/(.+)\/frameworks\//.exec(props.directory)[1]+"."+/\/runs\/(.+)/.exec(props.directory)[1]+" bash"} />
           {props.task.mesosTask.executor && <InfoBox copyableClassName="info-copyable" name="Executor GUID" value={props.task.mesosTask.executor.executorId.value} />}
           <InfoBox copyableClassName="info-copyable" name="Hostname" value={props.task.offer.hostname} />
           {!_.isEmpty(props.ports) && <InfoBox copyableClassName="info-copyable" name="Ports" value={props.ports.toString()} />}
