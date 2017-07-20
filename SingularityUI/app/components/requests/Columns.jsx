@@ -191,16 +191,18 @@ export const Actions = (
   <Column
     label={
       (data)=>{
-          function reload(){
+
+          window._BATCH_THEN =function (){
           setTimeout(function(){
           window.location.reload();
-          },1000);
-          }
+          },3000);
+          };
+          function none(){}
           return (
           <div className="hidden-xs">
-              <BounceButton requestId={data.map(r=>{return r.id;})} then={reload} />
-               <UnpauseButton requestId={data.map(r=>{return r.id;})} then={reload} />
-               <PauseButton requestId={data.map(r=>{return r.id;})} isScheduled={false} then={reload}/>
+              <BounceButton requestId={data.map(r=>{return r.id;})} then={none} />
+               <UnpauseButton requestId={data.map(r=>{return r.id;})} then={_BATCH_THEN} />
+               <PauseButton requestId={data.map(r=>{return r.id;})} isScheduled={false} then={_BATCH_THEN}/>
            </div>
           );
       }
