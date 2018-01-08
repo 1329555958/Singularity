@@ -13,6 +13,7 @@
   },
   "bin": {},
   "scripts": {
+    "build": "gulp build",
     "start": "gulp serve",
     "test": "mocha --compilers js:babel-core/register test/index.test",
     "test:watch": "npm test -- --watch"

@@ -33,7 +33,7 @@ For a more thorough explanation of the concepts behind Singularity and Mesos cli
 - java 
 `mvn clean package -DskipTests`
 - ui
-单独在SingularityUI下面执行`gulp` 进行编译，然后把dist下面内容放在SingularityService的assets目录里
+单独在SingularityUI下面执行`npm run build` 进行编译，然后把dist下面内容放在SingularityService的assets目录里
 
 ### 结构 ###
 - 后端
