@@ -35,6 +35,17 @@ For a more thorough explanation of the concepts behind Singularity and Mesos cli
 - ui
 单独在SingularityUI下面执行`npm run build` 进行编译，然后把dist下面内容放在SingularityService的assets目录里
 
+- no-actions
+1. 在app.css 中添加
+table th.actions-column,td.actions-column{
+  display:none;
+}
+.detail-header .button-container{
+  display:none;
+}
+2. TaskDetail.jsx 中
+使用/docker的host定义
+
 ### 结构 ###
 - 后端
 主入口是SingularityService里面的IndexView
@@ -44,6 +55,7 @@ url映射是是resources目录
 界面元素是在app/components下面定义，使用url
 数据获取、url定义等是在app/actions/api下面定义
 界面与数据是通过url来绑定的
+
 
 
 
