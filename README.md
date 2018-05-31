@@ -48,7 +48,7 @@ table th.actions-column,td.actions-column{
 
 ### 结构 ###
 - 后端
-主入口是SingularityService里面的IndexView
+主入口是SingularityService里面的IndexView,jar包里面com.hubspot.singularity.views.index.mustache
 url映射是是resources目录
 
 - 前端react
