@@ -128,9 +128,6 @@ const Racks = (props) => {
         className="actions-column"
         cellData={(rack) => (
           <span>
-            {getMaybeReactivateButton(rack)}
-            {getMaybeDecommissionButton(rack)}
-            {getMaybeRemoveButton(rack)}
             <JSONButton object={rack} showOverlay={true}>
               {'{ }'}
             </JSONButton>

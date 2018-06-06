@@ -318,11 +318,6 @@ const Slaves = (props) => {
         className="actions-column"
         cellData={(slave) => (
           <span>
-            {getMaybeRemoveExpiring(slave)}
-            {getMaybeReactivateButton(slave)}
-            {getMaybeFreezeButton(slave)}
-            {getMaybeDecommissionButton(slave)}
-            {getMaybeRemoveButton(slave)}
             <JSONButton object={slave} showOverlay={true}>
               {'{ }'}
             </JSONButton>
