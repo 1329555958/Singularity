@@ -360,14 +360,12 @@ export const LogLinkAndJSON = logPath => (
     cellData={(rowData) => rowData.taskId}
     cellRender={(taskId, rowData) => (
       <div className="hidden-xs">
-        <OverlayTrigger placement="top" id="view-log-overlay" overlay={logTooltip}>
-          <Link
-            to={`request/${taskId.requestId}/tail/${logPath}?taskIds=${taskId.id}`}
-            title="Log"
+          <a target="_blank"
+            href={`http://${taskId.host}:3030/app/${taskId.requestId}`}
+            title="console"
           >
-            <Glyphicon glyph="file" />
-          </Link>
-        </OverlayTrigger>
+            <Glyphicon glyph="console" />
+          </a>
         <JSONButton className="inline" object={rowData} showOverlay={true}>
           {'{ }'}
         </JSONButton>

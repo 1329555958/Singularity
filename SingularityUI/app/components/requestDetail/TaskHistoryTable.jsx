@@ -113,20 +113,12 @@ const TaskHistoryTable = ({requestId, requestParent, tasksAPI, fetchTaskHistoryF
           className="actions-column"
           cellData={(task) => (
             <span>
-              <OverlayTrigger placement="top" id="view-log-overlay" overlay={logTooltip}>
-                <Link to={`task/${task.taskId.id}/tail/${config.finishedTaskLogPath}`}>
-                  <Glyphicon glyph="file" />
-                </Link>
-              </OverlayTrigger>
-              {Utils.request.canBeRunNow(requestParent) && (
-                <RunNowButton requestId={requestId} taskId={task.taskId.id}>
-                  <OverlayTrigger placement="top" id="view-run-now-overlay" overlay={runNowTooltip}>
-                    <a title="Rerun This Task">
-                      <Glyphicon glyph="repeat" />
-                    </a>
-                  </OverlayTrigger>
-                </RunNowButton>
-              )}
+              <a target="_blank"
+                 href={`http://${task.taskId.host}:3030/spiderweb-node?dir=/opt/${task.taskId.id}&title=${task.taskId.requestId}`}
+                 title="console"
+              >
+                  <Glyphicon glyph="console" />
+                </a>
               <JSONButton object={task} showOverlay={true}>
                 {'{ }'}
               </JSONButton>

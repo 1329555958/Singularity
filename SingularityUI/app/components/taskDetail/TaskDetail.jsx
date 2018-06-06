@@ -293,7 +293,7 @@ class TaskDetail extends Component {
       label = '';
     }
 
-     const host = 'http://'+ this.props.task.task.taskId.host + ':3030/spiderweb-node?dir=/opt/'+this.props.task.task.taskId.id;
+     const host = 'http://'+ this.props.task.task.taskId.host + ':3030/spiderweb-node?dir=/opt/'+this.props.task.task.taskId.id+'&title='+this.props.task.task.taskId.id;
     //const host = '/docker/'+ this.props.task.task.taskId.host;
     return (
       <header className="detail-header">
@@ -301,7 +301,7 @@ class TaskDetail extends Component {
           <div className="col-md-12">
             <Breadcrumbs
               items={breadcrumbs}
-              right={<span><strong>Host: </strong><a target="_blank" href={`${host}`}>{this.props.task.task.offer.hostname}</a></span>}
+              //right={<span><strong>Host: </strong><a target="_blank" href={`${host}`}>{this.props.task.task.offer.hostname}</a></span>}
             />
           </div>
         </div>
