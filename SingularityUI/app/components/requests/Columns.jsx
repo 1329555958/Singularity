@@ -198,13 +198,18 @@ export const Actions = (
           },3000);
           };
           function none(){}
-          return (
-          <div className="hidden-xs">
-              <BounceButton requestId={data.map(r=>{return r.id;})} then={none} />
-               <UnpauseButton requestId={data.map(r=>{return r.id;})} then={_BATCH_THEN} />
-               <PauseButton requestId={data.map(r=>{return r.id;})} isScheduled={false} then={_BATCH_THEN}/>
-           </div>
-          );
+          if(localStorage.getItem('singularityUserId') === 'SingularityAdmin'){
+              return (
+                  <div className="hidden-xs">
+                      <BounceButton requestId={data.map(r=>{return r.id;})} then={none} />
+                      <RemoveButton requestId={data.map(r=>{return r.id;})} then={_BATCH_THEN}/>
+                      <UnpauseButton requestId={data.map(r=>{return r.id;})} then={_BATCH_THEN} />
+                      <PauseButton requestId={data.map(r=>{return r.id;})} isScheduled={false} then={_BATCH_THEN}/>
+                  </div>
+              );
+          }else{
+              return 'Actions';
+          }
       }
     }
     id="actions"
